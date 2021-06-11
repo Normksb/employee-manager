@@ -17,7 +17,7 @@ startEmployeeManager();
 
 // initial inquirer prompts once the app starts
 function startEmployeeManager() {
-  _sp();
+  spaces();
   inquirer.prompt([
     {
       type: "list",
@@ -57,6 +57,7 @@ function startEmployeeManager() {
   });
 }
 
+// lists all departments
 async function listDepartments() {
   const [rows, fields] =  await conn.promise().query(
     "SELECT * FROM departments"
@@ -65,6 +66,7 @@ async function listDepartments() {
   return await rows;
 }
 
+// lists all roles
 async function listRoles() {
   const [rows, fields] = await conn.promise().query(
       "SELECT * from roles",
@@ -72,7 +74,7 @@ async function listRoles() {
   console.table(rows);
   return await rows;
 }
-
+ // lists all employees
 async function listEmployees() {
 const [rows, fields] = await conn.promise().query(
   "SELECT * FROM employees"
@@ -81,8 +83,9 @@ console.table(rows);
 return await rows;
 }
 
+// adds a department
 function addDepartment() {
-  _sp();
+  spaces();
   listDepartments().then((departments) => {
     inquirer.prompt([
       {
@@ -92,6 +95,7 @@ function addDepartment() {
       },
     ])
     .then((answer) => {
+      // if no answer provided go back to the start of function to add department
       if(answer.department == null || answer.department == ""){
         printError('Sorry, you did not enter any name');
         addDepartment();
@@ -115,8 +119,9 @@ function addDepartment() {
   });
 }
 
+// adds a role
 function addRole() {
-  _sp();
+  spaces();
   listRoles().then((roles) => {
     inquirer.prompt([
       {
@@ -141,6 +146,7 @@ function addRole() {
       }
     ])
     .then((answers) => {
+      // if no valid answer for title or salary go back to the start of add role function
       if(answers.title == null ||
          answers.title == "" ||
          answers.salary == null ||
@@ -166,8 +172,9 @@ function addRole() {
   });
 }
 
+// adds an employee
 function addEmployee() {
-  _sp();
+  spaces();
   listEmployees().then((employees) => {
     inquirer.prompt([
       {
@@ -202,6 +209,7 @@ function addEmployee() {
       }
     ])
     .then((answers) => {
+      // if no valid answer to first or last name go back to start of add employee  function
       if(answers.firstName == null ||
          answers.firstName == "" ||
          answers.lastName == null ||
@@ -227,8 +235,9 @@ function addEmployee() {
   });
 }
 
+// update an existing
 function updateRoles() {
-  _sp();
+  spaces();
   listRoles().then((roles) => {
     inquirer.prompt([
       {
@@ -274,7 +283,7 @@ function updateRoles() {
           }
         ]).then((answer) => {
           if(answer.confirmation){
-            _sp();
+            spaces();
             console.log('Values Saved!');
             conn.query(
               "UPDATE roles SET `title` = ?, `salary` = ?, `department_id` = ? WHERE `role_id` = ?", 
@@ -289,7 +298,7 @@ function updateRoles() {
 }
 
 // add a couple of lines of space between prompts
-function _sp(){
+function spaces(){
   console.log('');
   console.log('');
 }
