@@ -57,10 +57,39 @@ function startEmployeeManager() {
   });
 }
 
+async function listDepartments() {
+  const [rows, fields] =  await conn.promise().query(
+    "SELECT * FROM departments"
+  );
+  console.table(rows);
+  return await rows;
+}
+
+async function listRoles() {
+  const [rows, fields] = await conn.promise().query(
+      "SELECT * from roles",
+  );
+  console.table(rows);
+  return await rows;
+}
+
+async function listEmployees() {
+const [rows, fields] = await conn.promise().query(
+  "SELECT * FROM employees"
+);
+console.table(rows);
+return await rows;
+}
+
 // add a couple of lines of space between prompts
 function _sp(){
   console.log('');
   console.log('');
+}
+
+//helper function for printing errors
+function printError(msg){
+  console.log('Oops...', msg);
 }
 
 // goes back to the start of the initial question prompts
