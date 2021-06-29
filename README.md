@@ -56,7 +56,7 @@ npm start
 ```
 The following video demonstrates use of the application;
 
-[video demonstration of the application](https://github.com/Normksb/employee-manager)  
+[video demonstration of the application](https://drive.google.com/file/d/1op39GGw8jlgVmDJwZgR511o7FX8u1TkQ/view)  
 
 ---
 ## License
