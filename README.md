@@ -18,7 +18,6 @@ This Application is a command line interface employee database manager. It allow
 - [Usage](#usage)
 - [License](#license)
 - [Contributing](#contributing)
-- [Tests](#tests)
 - [Technologies](#technologies)
 - [Questions](#questions)
 
