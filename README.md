@@ -54,7 +54,9 @@ To start application please use the start script already found in the package.js
 ```bash
 npm start
 ```
+The following video demonstrates use of the application;
 
+[video demonstration of the application](https://github.com/Normksb/employee-manager)  
 
 ---
 ## License
