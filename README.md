@@ -1,7 +1,7 @@
 # Employee Manager
  
   
-  ![alt text](./images/screenshot.PNG)
+  ![Employee Manager](https://github.com/Normksb/employee-manager/blob/main/screenshot.png)
   
 [Here is a link to the gitHub repo](https://github.com/Normksb/employee-manager)  
 
